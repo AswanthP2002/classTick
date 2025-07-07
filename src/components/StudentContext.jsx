@@ -36,6 +36,20 @@ export function StudentProvider({children}){
         setAbsentees(ab)
     }
 
+    function unselectAlternative(studentId){
+        const unselectedStudent = alternativeSession.find((student) => {
+            return student.id === studentId
+        })
+
+        setAbsentees((prev) => {
+            return [...prev, unselectedStudent]
+        })
+        
+        setAlternativeSession((prev) => {
+            return alternativeSession.filter((student) => student.id !== studentId)
+        })
+    }
+
     function addAlternativeSession(studentId){
         const student = absentees.filter((stud) => {
             return stud.id === studentId
@@ -86,7 +100,7 @@ export function StudentProvider({children}){
     }
 
     return(
-        <StudentContext.Provider value={{attendees, absentees, externalBatch, alternativeSession, handleRemarks, addAttendees, unselect, addExternalBatchStudents, removeExternalBatchStudents, addAlternativeSession}}>
+        <StudentContext.Provider value={{attendees, absentees, externalBatch, alternativeSession, unselectAlternative, handleRemarks, addAttendees, unselect, addExternalBatchStudents, removeExternalBatchStudents, addAlternativeSession}}>
             {children}
         </StudentContext.Provider>
     )

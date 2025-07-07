@@ -24,13 +24,13 @@ export default function AttendedStudents(){
     }
     return(
         <>
-        <div className="border border-gray-300 !p-3 !rounded-md col-1">
-            <h3 className="text-center font-bold text-md">Attended / Done</h3>
+        <div className="border border-gray-300 !p-3 !rounded-md">
+            <h3 className="text-center font-semibold">Attendees</h3>
             <button onClick={copyText} type="button" className="btn-copy cursor-pointer">Copy <i className="fa-solid fa-copy"></i></button>
-            <ul ref={listRef}>
+            <ul ref={listRef} className="!mt-3">
                 {
                     attendees.map((student, index) => {
-                        return <li>✅ {student.name}</li>
+                        return <li className="!text-sm">✅ {student.name}</li>
                     })
                 }
             </ul>

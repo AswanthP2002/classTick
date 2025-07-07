@@ -104,15 +104,15 @@ export default function ReportEditor(){
 
         <div className="!mt-3">
             <p className="font-semibold text-sm !mb-2">Edit Report <span className="text-xs bg-green-300 !px-2 rounded text-white">New</span></p>
-            <div className="flex gap-2">
-                <div>
+            <div className="grid grid-cols-3 gap-2">
+                <div className="w-full">
                     <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Date</label>
-                    <input value={reportDate} onChange={(event) => setReportDate(event.target.value)} type="date" name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
+                    <input value={reportDate} onChange={(event) => setReportDate(event.target.value)} type="date" name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none w-full" />
                     <label htmlFor="" className="error-label text-red-500 text-xs block">{reportDateError}</label>
                 </div>
-                <div>
+                <div className="w-full">
                     <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Coordinator</label>
-                    <select value={coordinator1} onChange={(event) => setCoordinator1(event.target.value)} name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none">
+                    <select value={coordinator1} onChange={(event) => setCoordinator1(event.target.value)} name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none w-full">
                     <option value="">Coordinator 1</option>
                     {
                         students.map((student, index) => {
@@ -135,31 +135,33 @@ export default function ReportEditor(){
                 </select>
                 <label htmlFor="" className="error-label text-red-500 text-xs block">{coordinator2Error}</label>
                 </div>
-                <div>
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Report Made by</label>
-                    <input type="text" name="" id="" value={creator} onChange={(event) => setCreator(event.target.value)} className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-                    <label htmlFor="" className="error-label text-red-500 text-xs block">{creatorError}</label>
-                </div>
+                
             </div>
 
-            <div className="flex gap-2 !mt-2">
-                    <div>
+            <div className="grid grid-cols-3 gap-2 !mt-2">
+                <div className="w-full">
+                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Report Made by</label>
+                    <input type="text" name="" id="" value={creator} onChange={(event) => setCreator(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
+                    <label htmlFor="" className="error-label text-red-500 text-xs block">{creatorError}</label>
+                </div>
+                    <div className="w-full">
                         <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Starting Time</label>
-                        <input type="text" name="" id="" value={start} onChange={(event) => setStart(event.target.value)} className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
+                        <input type="text" name="" id="" value={start} onChange={(event) => setStart(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
                         <label htmlFor="" className="error-label text-red-500 text-xs block">{startError}</label>
                     </div>
 
-                    <div>
+                    <div className="w-full">
                         <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Ending Time</label>
-                        <input type="text" name="" id="" value={end} onChange={(event) => setEnd(event.target.value)} className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
+                        <input type="text" name="" id="" value={end} onChange={(event) => setEnd(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
                         <label htmlFor="" className="error-label text-red-500 text-xs block">{endError}</label>
                     </div>
 
-                    <div style={{flexGrow:'1'}}>
+                    
+            </div>
+            <div className="w-full">
                         <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Activity</label>
                         <input type="text" name="" id="" value={activity} onChange={(event) => setActivity(event.target.value)} className="!w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
                         <label htmlFor="" className="error-label text-red-500 text-xs block">{activityError}</label>
-                    </div>
             </div>
 
             <div className="!mt-2">

@@ -18,9 +18,9 @@ export default function SelectedStudents(){
                         {
                             attendees.map((student, index) => {
                                 return <tr key={index}>
-                                    <td>{student.name}</td>
-                                    <td>
-                                        <button onClick={() => unselect(student.id)} type="button" className="btn text-red-300 hover:text-red-500 cursor-pointer">Unselect</button>
+                                    <td className="text-normal lg:text-xs">{student.name}</td>
+                                    <td className="!px-2">
+                                        <button onClick={() => unselect(student.id)} type="button" className="btn text-red-300 hover:text-red-500 cursor-pointer text-xs me-2">Unselect</button>
                                     </td>
                                 </tr>
                             })

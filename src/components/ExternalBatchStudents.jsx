@@ -41,7 +41,7 @@ export default function ExternalBatchAttendees(){
         </div>
         {
             isPresent && (
-                        <div className="flex gap-3 !mt-3">
+                        <div className="grid gap-3 !mt-3">
                             <div className="flex gap-3">
                                 <div>
                                 <input value={student} onChange={(event) => setStudent(event.target.value)} type="text" placeholder="Enter name" className="border border-gray-200 rounded !text-sm !px-2 !outline-none" />

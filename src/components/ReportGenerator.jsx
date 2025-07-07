@@ -11,10 +11,12 @@ import ReportEditor from './ReportEditor'
 export default function ReportGenerator() {
     return (
         <div className='w-full !px-4 !py-3'>
-            <div className="flex w-full gap-10">
-                <ActiveStudents />
-                <div>
-                    <div className='flex gap-10 bg-gray-100 h-fit !p-2 rounded'>
+            <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
+                <div className=''>
+                    <ActiveStudents />
+                </div>
+                <div className=''>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-10 h-fit !p-2 rounded'>
                         <ExternalBatchAttendees />
                         <SelectedStudents />
                     </div>
@@ -24,7 +26,7 @@ export default function ReportGenerator() {
             </div>
             <div className='border border-gray-200 w-full !mt-2 !mb-2'></div>
             <p className="text-center !mb-2">Attendance preview</p>
-            <div className="grid cols-4 w-full !p-3 !gap-5">
+            <div className="!grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full !p-3 !gap-5">
                 <AttendedStudents />
                 <SelectedExternalStudents />
                 <SelectedAlternativeSessionStudents />

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { StudentContext } from "./StudentContext";
 
 export default function SelectedAlternativeSessionStudents() {
-    const { alternativeSession } = useContext(StudentContext)
+    const { alternativeSession, unselectAlternative } = useContext(StudentContext)
 
     const tagTitle = `*Alternative Session🟢🟢🟢*\n\n`
     let copiedText
@@ -21,13 +21,18 @@ export default function SelectedAlternativeSessionStudents() {
         <>
             {
                 alternativeSession.length > 0 && (
-                    <div className="border border-gray-300 rounded p-3 col-3">
-                        <h3 className="text-center font-bold text-md">Alternative Session</h3>
+                    <div className="border border-gray-300 rounded !p-3">
+                        <h3 className="text-center font-semibold">Alternative Session</h3>
                         <button onClick={copyText} type="button" className="btn-copy cursor-pointer">Copy <i className="fa-solid fa-copy"></i></button>
-                        <ul>
+                        <ul className="!mt-3">
                             {
                                 alternativeSession.map((student) => {
-                                    return <li className="list-none">✅ {student.name} ({student.remarks})</li>
+                                    return(
+                                        <>
+                                            <li className="list-none !text-sm">✅ {student.name}
+                                            <button  onClick={() => unselectAlternative(student.id)} type="button" className="cursor-pointer text-red-500 !ms-2 !font-semibold">Unselect</button></li>
+                                        </>
+                                    )
                                 })
                             }
                         </ul>

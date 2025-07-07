@@ -22,13 +22,13 @@ export default function SelectedExternalStudents() {
         <>
             {
                 externalBatch.length > 0 && (
-                    <div className="border border-gray-300 rounded p-3 col-2">
-                        <h3 className="text-center font-bold text-md">External Batch Attendees</h3>
+                    <div className="border border-gray-300 rounded !p-3">
+                        <h3 className="text-center font-semibold">External Batch Attendees</h3>
                         <button onClick={copyText} type="button" className="btn-copy cursor-pointer">Copy <i className="fa-solid fa-copy"></i></button>
-                        <ul>
+                        <ul className="!mt-3">
                             {
                                 externalBatch.map((student, index) => {
-                                    return <li className="list-none">✅ {student}</li>
+                                    return <li className="list-none !text-sm">✅ {student}</li>
                                 })
                             }
                         </ul>

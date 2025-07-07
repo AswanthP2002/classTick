@@ -22,13 +22,13 @@ export default function AbsentStudents(){
     }
     return(
         <>
-        <div className="border border-gray-300 !rounded-md col-4">
-            <h3 className="text-center font-bold text-md">Absent / Not Done</h3>
+        <div className="border border-gray-300 !rounded-md !p-3">
+            <h3 className="text-center font-semibold">Absentees</h3>
             <button onClick={copyText} type="button" className="btn-copy cursor-pointer">Copy <i className="fa-solid fa-copy"></i></button>
-            <ul ref={listRef}>
+            <ul ref={listRef} className="!mt-3">
                 {
                     absentees.map((student, index) => {
-                        return <li>❌ {student.name} {student.status !== 'active' ? '(NA)' : null}</li>
+                        return <li className="!text-sm">❌ {student.name} </li>
                     })
                 }
             </ul>

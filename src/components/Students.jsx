@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { students } from "../assets/students"
 import { StudentContext } from "./StudentContext"
 import useSort from "../hooks/useSort"
+import Swal from 'sweetalert2'
 
 export default function ActiveStudents(){
     const [search, setSearch] = useState("")
@@ -25,9 +26,20 @@ export default function ActiveStudents(){
         }
         
     }, [search, absentees])
+
+    useEffect(() => {
+        Swal.fire(({
+            icon:'info',
+            title:'Info',
+            text:'Student status may be inaccurate due to outdated information.',
+            showConfirmButton:true,
+            showCancelButton:false,
+            allowOutsideClick:false
+        }))
+    }, [])
     return(
         <>  
-            <div className="w-[700px]">
+            <div className="w-full">
             <h3 className="text-center font-bold text-md">Total Students</h3>
                 <div className="search w-full">
                     <input onChange={(event) => searchPeople(event.target.value)} type="text" name="" className="!mb-3 border border-gray-200 rounded-full !px-3 !py-2 w-[250px] outline-none text-xs" placeholder="Search name" id="" />
@@ -39,7 +51,7 @@ export default function ActiveStudents(){
                             <td className="font-semibold text-md !p-2">Status</td>
                             <td className="font-semibold text-md !p-2">Info</td>
                             <td className="font-semibold text-md !p-2">Action</td>
-                            <td className="!p-2">Remarks</td>
+                            {/* <td className="!p-2">Remarks</td> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -64,9 +76,9 @@ export default function ActiveStudents(){
                                             <button onClick={() => addAttendees(student.id)} type="button" className="!ms-3 bg-blue-300 rounded-sm cursor-pointer text-xs !px-3 !py-1">Select</button>
                                             <button onClick={() => addAlternativeSession(student.id)} type="button" className="!ms-3 bg-red-200 rounded-sm cursor-pointer text-xs !px-3 !py-1">Alt Session</button>
                                         </td>
-                                        <td className="!p-2">
+                                        {/* <td className="!p-2">
                                             <input style={{cursor:"not-allowed"}} disabled={true} value={student.remarks} onChange={(event) => handleRemarks(student.id, event.target.value)} type="text" name="" id="" className="!text-xs border border-gray-300 rounded !outline-none !p-1" />
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 )
                             })
