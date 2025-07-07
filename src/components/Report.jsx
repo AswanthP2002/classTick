@@ -7,6 +7,7 @@ import { StudentContext } from './StudentContext'
 export default function ReportPage() {
 
     const [currentQuote, setCurrentQuote] = useState(quotes[Math.floor(Math.random() * quotes.length)])
+    const [attendees, setAttendees] = useState([])
 
     const location = useLocation()
 
@@ -40,15 +41,15 @@ export default function ReportPage() {
         <>
             <div className="overlay absolute w-full h-full left-0 top-0" style={{ zIndex: 1 }}></div>
             <div id="report-section" className="w-full h-screen" style={{ zIndex: -1 }}>
-                <div className="flex w-full h-screen relative" style={{zIndex:5}}>
-                    <div className="w-1/2 h-screen flex items-center justify-center !px-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 w-full h-screen relative" style={{zIndex:5}}>
+                    <div className="full hidden h-screen hidden md:flex items-center justify-center !px-10">
                         <p className='text-2xl text-white font-libre font-bold'>"{currentQuote.quote}"
                             <div className="text-start !mt-3">
                                 <p className="text-sm">~ {currentQuote.name}</p>
                             </div>
                         </p>
                     </div>
-                    <div className="w-1/2 h-screen overflow-y-scroll">
+                    <div className="w-full h-screen overflow-y-scroll">
                         <div className="rounded-sm bg-green-whatsap w-[450px] text-white !p-3 !mt-10">
                             <div className="flex justify-end">
                                 <i onClick={copyReport} className="fa-solid fa-copy cursor-pointer"></i>

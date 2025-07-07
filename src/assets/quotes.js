@@ -52,18 +52,6 @@ export const quotes = [
     name: "Lionel Messi"
   },
   {
-    quote: "I always want more. Whether it's a goal or winning a game, I’m never satisfied.",
-    name: "Kylian Mbappé"
-  },
-  {
-    quote: "It’s not about the name on the back of the jersey. It’s about the badge on the front.",
-    name: "David Villa"
-  },
-  {
-    quote: "I learned all about life with a ball at my feet.",
-    name: "Ronaldinho"
-  },
-  {
     quote: "Success isn’t determined by how many times you win, but by how you play the week after you lose.",
     name: "Pele"
   },
@@ -84,43 +72,15 @@ export const quotes = [
     name: "Diego Maradona"
   },
   {
-    quote: "I’ve never played for a draw in my life.",
-    name: "Alex Ferguson"
-  },
-  {
-    quote: "Football is played with the head. Your feet are just the tools.",
-    name: "Andrea Pirlo"
-  },
-  {
     quote: "You can't score a goal if you don't take a shot.",
     name: "Johan Cruyff"
   },
   {
-    quote: "Playing football is very simple, but playing simple football is the hardest thing there is.",
-    name: "Johan Cruyff"
+    quote: "Pressure is a privilege",
+    name: "Virgil Van Dijk"
   },
   {
     quote: "Every disadvantage has its advantage.",
     name: "Johan Cruyff"
   },
-  {
-    quote: "When you buy me, you are buying a Ferrari.",
-    name: "Zlatan Ibrahimović"
-  },
-  {
-    quote: "I came like a king, left like a legend.",
-    name: "Zlatan Ibrahimović"
-  },
-  {
-    quote: "I'm not a man. I'm Zlatan.",
-    name: "Zlatan Ibrahimović"
-  },
-  {
-    quote: "Some people tell me that we professional players are soccer slaves. Well, if this is slavery, give me a life sentence.",
-    name: "Bobby Charlton"
-  },
-  {
-    quote: "I don't believe skill was, or ever will be, the result of coaches. It is a result of a love affair between the child and the ball.",
-    name: "Roy Keane"
-  }
 ];

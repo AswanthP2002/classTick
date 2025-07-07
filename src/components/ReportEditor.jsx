@@ -145,13 +145,13 @@ export default function ReportEditor(){
                     <label htmlFor="" className="error-label text-red-500 text-xs block">{creatorError}</label>
                 </div>
                     <div className="w-full">
-                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Starting Time</label>
-                        <input type="text" name="" id="" value={start} onChange={(event) => setStart(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
+                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Starting Time | <span style={{fontSize:'.7rem'}}>(eg : 2.00 PM)</span></label>
+                        <input placeholder="" type="text" name="" id="" value={start} onChange={(event) => setStart(event.target.value)} className="w-full border border-gray-200 !text-sm !text-sm !p-1 rounded-sm outline-none" />
                         <label htmlFor="" className="error-label text-red-500 text-xs block">{startError}</label>
                     </div>
 
                     <div className="w-full">
-                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Ending Time</label>
+                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Ending Time | <span style={{fontSize:'.7rem'}}>(eg : 3.00 PM)</span></label>
                         <input type="text" name="" id="" value={end} onChange={(event) => setEnd(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
                         <label htmlFor="" className="error-label text-red-500 text-xs block">{endError}</label>
                     </div>
@@ -172,7 +172,7 @@ export default function ReportEditor(){
             <div className="!mt-2">
                     <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Session Overview</label>
                     <div className="border border-gray-200 rounded relative">
-                        <textarea value={sessionOverview} onChange={(event) => setSessionOverview(event.target.value)} name="" rows={8} id="" className="w-full outline-none"></textarea>
+                        <textarea value={sessionOverview} onChange={(event) => setSessionOverview(event.target.value)} name="" rows={8} id="" className="!p-2 w-full outline-none"></textarea>
                         <button onClick={handleEmojiPickerVisibility} type="button" className="btn-emoji cursor-pointer !text-xs !ms-2 !mb-2 border border-gray-200 !p-1">{showEmojiPicker ? 'Close' : 'Add Emoji'}</button>
                         {
                             showEmojiPicker && (<div className="absolute">

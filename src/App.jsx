@@ -14,15 +14,18 @@ import ReportEditor from './components/ReportEditor'
 import { Route, Routes } from 'react-router-dom'
 import ReportGenerator from './components/ReportGenerator'
 import ReportPage from './components/Report'
+import Layout from './outlet'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     
-    <Routes>
-      <Route path='/' element={<ReportGenerator />} />
-      <Route path='/report' element={<ReportPage />} />
+    <Routes >
+      <Route path='/' element={<Layout />}>
+        <Route index element={<ReportGenerator />} />
+        <Route path='report' element={<ReportPage />} />
+      </Route>
     </Routes>
     
   )
