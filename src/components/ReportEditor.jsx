@@ -97,7 +97,7 @@ export default function ReportEditor(){
     }
 
     useEffect(() => {
-        console.log('date for report', reportDate)
+        // console.log('date for report', reportDate)
     }, [reportDate])
 
     return(

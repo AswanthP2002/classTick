@@ -1,7 +1,7 @@
 import '../index.css'
 import { quotes } from '../assets/quotes'
 import { useContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { StudentContext } from './StudentContext'
 
 export default function ReportPage() {
@@ -10,6 +10,17 @@ export default function ReportPage() {
     const [attendees, setAttendees] = useState([])
 
     const location = useLocation()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        
+        if(!location.state){
+            navigate('/editor')
+        }
+    }, [location.state, navigate])
+
+    if(!location.state) return null
+
 
     const {
         coordinator1, 
@@ -28,6 +39,7 @@ export default function ReportPage() {
 
 
     function copyReport(){
+        
         const content = document.getElementById('report-content').innerText
         navigator.clipboard.writeText(content)
             .then(() => {

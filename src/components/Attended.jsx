@@ -19,7 +19,7 @@ export default function AttendedStudents(){
             await navigator.clipboard.writeText(tagTitle + copiedText)
         } catch (error) {
             alert(error.message)
-            console.log('Erro occured while copying', error)
+            // console.log('Erro occured while copying', error)
         }
     }
     return(

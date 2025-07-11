@@ -7,9 +7,27 @@ import ExternalBatchAttendees from './ExternalBatchStudents'
 import SelectedExternalStudents from './selectedExternalStudents'
 import SelectedAlternativeSessionStudents from './SelectedAlternativeSessionStudents'
 import ReportEditor from './ReportEditor'
+import { useEffect, useState } from 'react'
+import GenieLoader from './Loading'
 
 export default function ReportGenerator() {
+    const [defaultLoading, setDefaultLoading] = useState(false)
+
+    useEffect(() => {
+        setDefaultLoading(true)
+        setTimeout(() => {
+            setDefaultLoading(false)
+        }, 2000);
+    }, [])
+
     return (
+        <> 
+        {defaultLoading && (
+                <div style={{zIndex:99999}} className="absolute left-0 top-0 w-full h-screen flex items-center bg-white justify-center">
+                    <GenieLoader />
+                </div>
+            )}
+        
         <div className='w-full !px-4 !py-3'>
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
                 <div className=''>
@@ -33,5 +51,6 @@ export default function ReportGenerator() {
                 <AbsentStudents />
             </div>
         </div>
+        </>
     )
 }

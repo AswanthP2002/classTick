@@ -29,3 +29,13 @@
   overflow-wrap: break-word;
   white-space: normal;
 }
+
+.bg-genie {
+  background-color: #649DAD;
+}
+.bg-genie-hard {
+  background-color: #417482;
+}
+.transparent {
+  background: rgba(0, 0, 0, 0.374);
+}

@@ -3,7 +3,7 @@ import { StudentContext } from "./StudentContext";
 
 export default function SelectedExternalStudents() {
     const { externalBatch } = useContext(StudentContext)
-    console.log('External batch students', externalBatch)
+    // console.log('External batch students', externalBatch)
 
     const tagTitle = `*External Batch Attendees🟢🟢🟢*\n\n`
     let copiedText

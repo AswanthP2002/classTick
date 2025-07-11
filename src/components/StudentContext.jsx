@@ -1,14 +1,65 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { students } from "../assets/students";
+import { getStudents } from "../services/getStudents";
 export const StudentContext = createContext()
 
 export function StudentProvider({children}){
     //custome--
-
+    const [logedAdmin, setLogedAdmin] = useState(localStorage.getItem('adminAttendGenie') || null)
+    const [loginError, setLoginError] = useState('')
     const [attendees, setAttendees] = useState([])
     const [absentees, setAbsentees] = useState(students)
     const [externalBatch, setExternalBatch] = useState([])
     const [alternativeSession, setAlternativeSession] = useState([])
+    const [alertStatus, setAlertStatus] = useState(false)
+    const [flag, setFlag] = useState('')
+    const [message, setMessage] = useState('')
+    const [icon, setIcon] = useState('')
+    const [adminNavbarVisible, setAdminNavbarVisible] = useState(true)
+
+    useEffect(() => {
+        (async function(){
+            const studentsCollection = await getStudents()
+            setAbsentees(studentsCollection)
+        })()
+    }, [])
+
+    const openNavbar = () => setAdminNavbarVisible(true)
+    const closeNavbar = () => setAdminNavbarVisible(false)
+
+    function loginSuccess(admin){
+        localStorage.setItem('adminAttendGenie', admin)
+    }
+
+    function logoutSuccess(){
+        localStorage.removeItem('adminAttendGenie')
+    }
+
+    async function GeneiAlert({icon, message}){
+        setMessage(message)
+        switch(icon){
+            case 'success' :
+                setFlag('green')
+                setIcon('fa-solid fa-circle-check')
+                break
+            case 'error' :
+                setFlag('red')
+                setIcon('fa-sold fa-circle-xmark')
+                break
+            case 'info' :
+                setFlag('blue')
+                setFlag('fa-solid fa-cricle-info')
+                break
+            case 'warning' :
+                setFlag('orange')
+                setFlag('fa-solid fa-circle-exclamation')
+                break
+            default :
+                setFlag('gray')
+                setFlag('fa-solid fa-triangle-exclamation')
+        }
+        setAlertStatus(true)
+    }
 
     function handleRemarks(studentId, remarks = ""){
         const changeAffectStudent = absentees.filter((student) => {
@@ -100,7 +151,7 @@ export function StudentProvider({children}){
     }
 
     return(
-        <StudentContext.Provider value={{attendees, absentees, externalBatch, alternativeSession, unselectAlternative, handleRemarks, addAttendees, unselect, addExternalBatchStudents, removeExternalBatchStudents, addAlternativeSession}}>
+        <StudentContext.Provider value={{adminNavbarVisible, logedAdmin, loginError, attendees, absentees, externalBatch, alternativeSession, alertStatus, setAlertStatus, loginSuccess, logoutSuccess, setLogedAdmin, setLoginError, unselectAlternative, handleRemarks, addAttendees, unselect, addExternalBatchStudents, removeExternalBatchStudents, addAlternativeSession, GeneiAlert, closeNavbar, openNavbar}}>
             {children}
         </StudentContext.Provider>
     )

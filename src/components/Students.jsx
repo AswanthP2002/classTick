@@ -61,16 +61,16 @@ export default function ActiveStudents(){
                                     <tr>
                                         <td className="!p-2">{student.name}</td>
                                         <td className="!p-2">
-                                            {student.status === 'active' && (<p className="text-green-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
-                                            {student.status === 'suspended' && (<p className="text-red-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
-                                            {student.status === 'refreshment' && (<p className="text-blue-400">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
-                                            {student.status === 'boarding' && (<p className="text-gray-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
+                                            {student.status === 'Active' && (<p className="text-green-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
+                                            {student.status === 'Suspended' && (<p className="text-red-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
+                                            {student.status === 'Refreshment' && (<p className="text-blue-400">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
+                                            {student.status === 'Break' && (<p className="text-gray-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
                                         </td>
                                         <td>
-                                            {student.status === 'active' && (<i className="fa-regular fa-face-smile"></i>)}
-                                            {student.status === 'suspended' && (<i className="fa-regular fa-face-tired"></i>)}
-                                            {student.status === 'refreshment' && (<i className="fa-solid fa-rotate-right"></i>)}
-                                            {student.status === 'boarding' && (<i className="fa-solid fa-plane-departure"></i>)}
+                                            {student.status === 'Active' && (<i className="fa-regular fa-face-smile"></i>)}
+                                            {student.status === 'Suspended' && (<i className="fa-regular fa-face-tired"></i>)}
+                                            {student.status === 'Refreshment' && (<i className="fa-solid fa-rotate-right"></i>)}
+                                            {student.status === 'Break' && (<i className="fa-solid fa-plane-departure"></i>)}
                                         </td>
                                         <td className="!p-2">
                                             <button onClick={() => addAttendees(student.id)} type="button" className="!ms-3 bg-blue-300 rounded-sm cursor-pointer text-xs !px-3 !py-1">Select</button>
