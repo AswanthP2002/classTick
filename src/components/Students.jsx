@@ -32,6 +32,7 @@ export default function ActiveStudents(){
             icon:'info',
             title:'Info',
             text:'Student status may be inaccurate due to outdated information.',
+            width:window.innerWidth < 500 ? '90%' : '450px',
             showConfirmButton:true,
             showCancelButton:false,
             allowOutsideClick:false
