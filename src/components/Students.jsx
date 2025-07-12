@@ -50,7 +50,7 @@ export default function ActiveStudents(){
                         <tr className="bg-gray-100">
                             <td className="font-semibold text-md !p-2">Name</td>
                             <td className="font-semibold text-md !p-2">Status</td>
-                            <td className="font-semibold text-md !p-2">Info</td>
+                            <td className="font-semibold text-md !p-2 hidden md:block">Info</td>
                             <td className="font-semibold text-md !p-2">Action</td>
                             {/* <td className="!p-2">Remarks</td> */}
                         </tr>
@@ -61,19 +61,19 @@ export default function ActiveStudents(){
                                 return(
                                     <tr>
                                         <td className="!p-2">{student.name}</td>
-                                        <td className="!p-2">
+                                        <td className="!md:p-2">
                                             {student.status === 'Active' && (<p className="text-green-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
                                             {student.status === 'Suspended' && (<p className="text-red-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
                                             {student.status === 'Refreshment' && (<p className="text-blue-400">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
                                             {student.status === 'Break' && (<p className="text-gray-500">{`${student.status[0].toUpperCase()}${student.status.slice(1)}`}</p>)}
                                         </td>
-                                        <td>
+                                        <td className="hidden md:block">
                                             {student.status === 'Active' && (<i className="fa-regular fa-face-smile"></i>)}
                                             {student.status === 'Suspended' && (<i className="fa-regular fa-face-tired"></i>)}
                                             {student.status === 'Refreshment' && (<i className="fa-solid fa-rotate-right"></i>)}
                                             {student.status === 'Break' && (<i className="fa-solid fa-plane-departure"></i>)}
                                         </td>
-                                        <td className="!p-2">
+                                        <td className="!md:p-2">
                                             <button onClick={() => addAttendees(student.id)} type="button" className="!ms-3 bg-blue-300 rounded-sm cursor-pointer text-xs !px-3 !py-1">Select</button>
                                             <button onClick={() => addAlternativeSession(student.id)} type="button" className="!ms-3 bg-red-200 rounded-sm cursor-pointer text-xs !px-3 !py-1">Alt Session</button>
                                         </td>
