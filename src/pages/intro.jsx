@@ -29,9 +29,9 @@ export default function HomePage(){
                         <p className="text-sm text-center">Manage students & App level data</p>
                     </div>
                 </div>
-                <Link to='#'>
-                    <p className='text-sm !mt-3 text-blue-500'><u>Want to be an Associate Admin ?</u></p>
-                </Link>
+            
+                    <p className='text-sm !mt-3 text-blue-500 cursor-not-allowed'><u>Want to be an Associate Admin ?</u></p>
+                
                 
             </div>
         </div>
