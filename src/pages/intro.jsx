@@ -19,16 +19,20 @@ export default function HomePage(){
                     </div>
 
                     <div className="lg:w-1/3 cursor-not-allowed relative card bg-gray-300 rounded-sm text-white !p-3 flex flex-col items-center justify-center">
-                        <p className="font-semibold text-lg">Control</p>
-                        <p className="text-sm text-center">Only for authorized coordinators to manage students data</p>
-                        <label htmlFor="" className='absolute bg-red-500 rounded-full !px-2 left-0 top-0' style={{ fontSize: '.5rem' }}>Upcoming</label>
+                        <p className="font-semibold text-lg">Associate Admin</p>
+                        <p className="text-sm text-center">Admin access to manage students (Add, Remove, Update)</p>
+                        <label htmlFor="" className='absolute bg-red-500 rounded-full !px-2 left-0 top-0' style={{ fontSize: '.5rem' }}>New</label>
                     </div>
 
                     <div onClick={goToAdminPage} className="lg:w-1/3 cursor-pointer card bg-genie rounded-sm text-white !p-3 flex flex-col items-center justify-center">
-                        <p className="font-semibold text-lg">Admin</p>
-                        <p className="text-sm text-center">Manage students</p>
+                        <p className="font-semibold text-lg">Super Admin</p>
+                        <p className="text-sm text-center">Manage students & App level data</p>
                     </div>
                 </div>
+                <Link to='#'>
+                    <p className='text-sm !mt-3 text-blue-500'><u>Want to be an Associate Admin ?</u></p>
+                </Link>
+                
             </div>
         </div>
     )

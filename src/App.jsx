@@ -22,6 +22,7 @@ import StudentManagePage from './pages/admin-students'
 import GenieAlert from './components/Genie-Alter'
 import { StudentContext } from './components/StudentContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import AddAssociateAdmin from './pages/AddAdmin'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +37,8 @@ function App() {
         <Route path='report' element={<ReportPage />} />
         <Route path='admin/login' element={<AdminLoginPage />} />
       </Route>
+
+      <Route path='/be-an-admin/associate' element={<AddAssociateAdmin />} />
 
       <Route path='/admin/dashboard' element={<ProtectedRoute><SidebarLayout /></ProtectedRoute>}>
         <Route index element={<StudentManagePage />} />
