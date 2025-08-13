@@ -8,12 +8,12 @@ export default function HomePage(){
     const goToControllPage = () => navigator('/control')
     const goToAdminPage = () => navigator('/admin/login')
     return(
-        <div className="w-full h-screen bg-white !px-5">
+        <div id='home-bg' className="w-full h-screen bg-white !px-5">
             <div className="w-full h-full flex flex-col items-center justify-center">
                 <img src={attendGenieLogo} className='w-[250px] md:w-[350px]' alt="" />
                 
                 <div className='flex flex-col gap-5 lg:flex-row'>
-                    <div onClick={goToGeneratePage} className="lg:w-1/3 cursor-pointer card bg-genie rounded-sm text-white !p-3 flex flex-col items-center justify-center">
+                    <div id='report-dv' onClick={goToGeneratePage} className="lg:w-1/3 relative shadow-lg border border-gray-300 cursor-pointer card bg-genie rounded-sm text-white !p-3 flex flex-col items-center justify-center">
                         <p className="font-semibold text-lg">Report</p>
                         <p className="text-sm text-center">Generate structured session report with just a few clicks.</p>
                     </div>
@@ -24,13 +24,13 @@ export default function HomePage(){
                         <label htmlFor="" className='absolute bg-red-500 rounded-full !px-2 left-0 top-0' style={{ fontSize: '.5rem' }}>New</label>
                     </div>
 
-                    <div onClick={goToAdminPage} className="lg:w-1/3 cursor-pointer card bg-genie rounded-sm text-white !p-3 flex flex-col items-center justify-center">
+                    <div id='admin-dv' onClick={goToAdminPage} className="lg:w-1/3 shadow-lg border border-gray-300 cursor-pointer card bg-genie rounded-sm text-white !p-3 flex flex-col items-center justify-center">
                         <p className="font-semibold text-lg">Super Admin</p>
                         <p className="text-sm text-center">Manage students & App level data</p>
                     </div>
                 </div>
             
-                    <p className='text-sm !mt-3 text-blue-500 cursor-not-allowed'><u>Want to be an Associate Admin ?</u></p>
+                    <p className='text-sm font-semibold !mt-3 text-blue-500 cursor-not-allowed'><u>Want to be an Associate Admin ?</u></p>
                 
                 
             </div>

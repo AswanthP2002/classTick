@@ -9,6 +9,8 @@ export default function AddAssociateAdmin(){
     const [loading, setLoading] = useState(false)
     const [identifiedStudentName, setIdentifiedStudentName] = useState("")
     const [identifiedStudentData, setIdentifiedStudentData] = useState({})
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     useEffect(() => {
         
@@ -104,6 +106,22 @@ export default function AddAssociateAdmin(){
                 </div>
                 
             </div>
+            {
+                identifiedStudentName
+                    ? <>
+                        <div className="credentials flex justify-center gap-5 !mt-10">
+                            <div>
+                                <label htmlFor="" className="text-sm block">Enter email</label>
+                                <input type="text" className="bg-white rounded-sm p-1" name="" id="" />
+                            </div>
+                            <div>
+                                <label htmlFor="" className="text-sm block">Enter password</label>
+                                <input type="text" className="bg-white rounded-sm p-1" name="" id="" />
+                            </div>
+                        </div>
+                     </>
+                : null
+            }
             <div className="flex justify-center">
                 <button className="!mt-3 cursor-pointer bg-green-400 rounded !p-1" type="button" onClick={submit}>Confirm & continue</button>
             </div>

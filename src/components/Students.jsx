@@ -3,10 +3,14 @@ import { students } from "../assets/students"
 import { StudentContext } from "./StudentContext"
 import useSort from "../hooks/useSort"
 import Swal from 'sweetalert2'
+import SmartAssist from "./SmartAssist"
+import useReadMeetlist from "../hooks/useReadMeetlist"
 
 export default function ActiveStudents(){
     const [search, setSearch] = useState("")
+    const [bcrFilteredStudents, setBcrFilteredStudents] = useState([])
     const [searchedStudens, setSearchedStudent] = useState([])
+    const fileScanner = useReadMeetlist()
     let {addAttendees, absentees, addAlternativeSession, handleRemarks} = useContext(StudentContext)
 
     function searchPeople(searchValue){
@@ -14,6 +18,22 @@ export default function ActiveStudents(){
     }
     //sort attendees always
     absentees = useSort(absentees)
+
+    async function excelScanner(event){
+        fileScanner(event)
+            .then((result) => {
+                const onlyRuled = result.filter((student) => {
+                    if(student["*     Meet"].includes("BCR64") || student["*     Meet"].includes("BCR 64")){
+                        return student
+                    }
+                })
+                setBcrFilteredStudents(onlyRuled)
+                console.log('BCR filtered students', onlyRuled)
+                result.forEach((data) => {
+                    console.log(data['*     Meet'])
+                })
+            })
+    }
 
     useEffect(() => {
         if(search){
@@ -42,8 +62,9 @@ export default function ActiveStudents(){
         <>  
             <div className="w-full">
             <h3 className="text-center font-bold text-md">Total Students</h3>
-                <div className="search w-full">
+                <div className="search w-full flex justify-between">
                     <input onChange={(event) => searchPeople(event.target.value)} type="text" name="" className="!mb-3 border border-gray-200 rounded-full !px-3 !py-2 w-[250px] outline-none text-xs" placeholder="Search name" id="" />
+                    {/* <SmartAssist excelScanner={excelScanner} /> */}
                 </div>
                 <table className="table w-full border border-gray-200 rounded-full">
                     <thead>
