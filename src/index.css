@@ -39,18 +39,3 @@
 .transparent {
   background: rgba(0, 0, 0, 0.374);
 }
-#home-bg{
-  background: url(../public/independance2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#report-dv{
-  background: url(../public/independance1.jpg);
-  background-size: cover;
-  color: black;
-}
-#admin-dv{
-  background: url(../public/independance1.jpg);
-  background-size: cover;
-  color: black;
-}
