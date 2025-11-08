@@ -136,7 +136,7 @@ export default function HomePage(){
                 </div>
 
                 <div className="border border-gray-300 w-full !mt-10 !p-5 bg-indigo-100 rounded-md">
-                    <div className="flex justify-between items-center">
+                    <div className="grid grid-cols-1 items-center sm:grid-cols-2 gap-3">
                         <div className="flex gap-2 items-center">
                             <div className="w-13 h-13 flex justify-center items-center rounded-full bg-gradient-to-br from-indigo-500 to-pink-500">
                                 <FiUser size={23} color='white' />
@@ -150,7 +150,7 @@ export default function HomePage(){
                             {
                                 socialMedia.map((item, index) => {
                                     return(
-                                    <div key={index} className='bg-white h-fit !p-1 rounded-sm cursor-pointer hover:bg-gray-300'>
+                                    <div key={index} className='w-full bg-white h-fit !p-1 rounded-sm cursor-pointer hover:bg-gray-300'>
                                         <span onClick={() => window.open(item.url)} className="flex gap-2 items-center">
                                             {item.icon}
                                             <p>{item.domain}</p>
