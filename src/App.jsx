@@ -49,9 +49,9 @@ function App() {
       <Route path='/be-an-admin/associate' element={<AddAssociateAdmin />} />
       <Route path='/test/app' element={<FileReadPage />} />
 
-      <Route path='/admin/dashboard' element={<ProtectedRoute><SidebarLayout /></ProtectedRoute>}>
-        <Route path='/admin/dashboard' element={<StudentManagePage />} />
-      </Route>
+      <Route path='/admin/dashboard' element={<ProtectedRoute><StudentManagePage /></ProtectedRoute>} />
+        {/* <Route path='/admin/dashboard' element={<StudentManagePage />} />
+      </Route> */}
     </Routes>
 
     <GenieAlert infoStatus={alertStatus} />
