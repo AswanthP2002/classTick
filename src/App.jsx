@@ -1,16 +1,5 @@
 import { useContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import ActiveStudents from './components/Students'
-import AttendedStudents from './components/Attended'
-import AbsentStudents from './components/Absent'
-import SelectedStudents from './components/Selected'
-import ExternalBatchAttendees from './components/ExternalBatchStudents'
-import AlternateSession from './components/AlternateSessionStudents'
-import SelectedExternalStudents from './components/selectedExternalStudents'
-import SelectedAlternativeSessionStudents from './components/SelectedAlternativeSessionStudents'
-import ReportEditor from './components/ReportEditor'
 import { Route, Routes } from 'react-router-dom'
 import ReportGenerator from './components/ReportGenerator'
 import ReportPage from './components/Report'
@@ -24,13 +13,27 @@ import { StudentContext } from './components/StudentContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import AddAssociateAdmin from './pages/AddAdmin'
 import FileReadPage from './pages/TestFileRead'
+import {CiLight, CiDark} from 'react-icons/ci'
+import {FaCircleInfo} from 'react-icons/fa6'
+import {SiDarkreader} from 'react-icons/si'
+import ThemeContextProvider, { themeContext } from './contexts/themeContext'
 
 function App() {
-  const [count, setCount] = useState(0)
   const {alertStatus} = useContext(StudentContext)
+  const {theme, changeTheme} = useContext(themeContext)
 
   return (
     <>
+    {/* <div className='bg-gray-200 shadow-lg absolute top-3 right-3 items-center rounded-full !px-3 !py-2 flex gap-3'>
+      {
+        theme === 'dark'
+          ? <button onClick={() => changeTheme('light')} className="cursor-pointer"><CiLight size={20} /></button>
+          : <button onChange={() => changeTheme('dark')} className='cursor-pointer'><CiDark size={20} /></button>
+      }
+
+      <button className='cursor-pointer'><SiDarkreader /></button>
+      <button title='Whats new' className='cursor-pointer'><FaCircleInfo /></button>
+    </div> */}
     <Routes >
       <Route path='/' element={<HomePage />} />
         {/* <Route index element={<HomePage />} /> */}
@@ -47,7 +50,7 @@ function App() {
       <Route path='/test/app' element={<FileReadPage />} />
 
       <Route path='/admin/dashboard' element={<ProtectedRoute><SidebarLayout /></ProtectedRoute>}>
-        <Route index element={<StudentManagePage />} />
+        <Route path='/admin/dashboard' element={<StudentManagePage />} />
       </Route>
     </Routes>
 

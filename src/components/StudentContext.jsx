@@ -135,6 +135,7 @@ export function StudentProvider({children}){
     }
 
     function addExternalBatchStudents(student, duplicate){
+        console.log('upcoming student data student', student)
         setExternalBatch(prevState => {
             if(duplicate){
                 return prevState.filter((stud) => stud !== student)
@@ -142,6 +143,7 @@ export function StudentProvider({children}){
                 return [...prevState, student]
             }
         })
+        console.log('external batch', externalBatch)
     }
 
     function removeExternalBatchStudents(student){
@@ -149,6 +151,10 @@ export function StudentProvider({children}){
             return prevState.filter((stud) => stud !== student)
         })
     }
+    
+    useEffect(() => {
+        console.log('external batch', externalBatch)
+    }, [externalBatch])
 
     return(
         <StudentContext.Provider value={{adminNavbarVisible, logedAdmin, loginError, attendees, absentees, externalBatch, alternativeSession, alertStatus, setAlertStatus, loginSuccess, logoutSuccess, setLogedAdmin, setLoginError, unselectAlternative, handleRemarks, addAttendees, unselect, addExternalBatchStudents, removeExternalBatchStudents, addAlternativeSession, GeneiAlert, closeNavbar, openNavbar}}>
