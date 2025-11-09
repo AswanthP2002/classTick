@@ -51,17 +51,25 @@ export default function ActiveStudents(){
         
     }, [search, absentees])
 
-    // useEffect(() => {
-    //     Swal.fire(({
-    //         icon:'info',
-    //         title:'Info',
-    //         text:'Student status may be inaccurate due to outdated information.',
-    //         width:window.innerWidth < 500 ? '90%' : '450px',
-    //         showConfirmButton:true,
-    //         showCancelButton:false,
-    //         allowOutsideClick:false
-    //     }))
-    // }, [])
+    /**
+     * After generating the report, please review and remove the names of students who are currently 
+            in the break, refreshment, or cool-off period from the absentees list to avoid any ambiguity 
+            or confusion.
+     */
+
+    useEffect(() => {
+        Swal.fire({
+            icon:'info',
+            title:'Info',
+            text:`The student status information may be inaccurate due to inconsistencies in the data. 
+            `,
+            showConfirmButton:true,
+            showCancelButton:false,
+            confirmButtonText:'Ok',
+            allowEscapeKey:false,
+            allowOutsideClick:false
+        })
+    }, [])
 
     const getPills = (status) => {
         switch(status){
@@ -73,6 +81,10 @@ export default function ActiveStudents(){
                 return(<span className="bg-red-200 text-xs !px-2 rounded-full font-medium text-red-600">{status}</span>)
             case 'Break' :
                 return (<span className="bg-gray-200 text-xs !px-2 rounded-full font-medium text-gray-600">{status}</span>)
+            case 'Cool-Off':
+                return (
+                    <span className="bg-indigo-200 text-xs !px-2 rounded-full font-medium text-indigo-600">{status}</span>
+                )
             default :
                 return
             }   

@@ -95,7 +95,7 @@ export default function HomePage(){
                         </div>
                         <div>
                             <p className='font-medium'>Version Info</p>
-                            <p className='text-gray-700'>Current version 2.0.0</p>
+                            <p className='text-gray-700'>Current version {versionInfo[0].version}</p>
                         </div>
                         </div>
                     <button onClick={() => setDropDownView(prv => !prv)} className='hover:bg-gray-300 !p-3 cursor-pointer rounded-md'>
@@ -115,7 +115,7 @@ export default function HomePage(){
                                             <div key={index} className="update flex gap-2 !mb-5">
                             <div className='!p-1 bg-gray-500'></div>
                             <div>
-                                <p>Update version {item.version} ({item.date} - {item.typeOfUpdate})</p>
+                                <p>{item.version} ({item.date})</p>
                                 <ul>
                                     {
                                         item.features.map((feature, index) => {

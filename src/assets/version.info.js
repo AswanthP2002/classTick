@@ -1,5 +1,14 @@
 export const versionInfo = [
     {
+        version:'2.0.1',
+        typeOfUpdate:'Minor',
+        features:[
+            "Updated phill for cool-off status",
+            "fixed some layout issues for mobile screen"
+        ],
+        date:'09-11-2025'
+    },
+    {
         version:'2.0.0',
         typeOfUpdate:'Major',
         features:[

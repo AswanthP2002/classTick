@@ -128,7 +128,7 @@ export default function StudentManagePage(){
         (async function(){
             setLoading(true)
             const studentsArray = await getStudents()
-            // console.log('This is student data', studentsArray)
+            console.log('This is student data', studentsArray)
             setStudents(studentsArray)
             setStudentsCount(studentsArray.length)
             setLoading(false)
@@ -154,7 +154,7 @@ export default function StudentManagePage(){
                     </div>
                     <div>
                         <p className="text-green-600">Admin Dashboard</p>
-                        <p>Manage students and application data</p>
+                        <p className="text-xs sm:text-base">Manage students and application data</p>
                     </div>
                 </div>
                 <button onClick={logoutAdmin} className="border border-2 flex items-center text-red-500 gap-2 !px-3 h-fit !py-2 cursor-pointer border-red-500 rounded-md"><LuLogOut /> Logout</button>

@@ -29,6 +29,10 @@ export default function Cards({ data, studentDelete, index, enableEdits }) {
                 return (
                     <span className="text-xs font-medium bg-orange-300 !px-3 text-orange-800 rounded-full">{status}</span>
                 )
+            case 'Cool-Off':
+                return (
+                    <span className="text-xs font-medium bg-indigo-300 !px-3 text-indigo-800 rounded-full">{status}</span>
+                )
             default:
                 return
 
