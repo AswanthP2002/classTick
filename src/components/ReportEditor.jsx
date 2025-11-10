@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { students } from "../assets/students";
 import InputEmoji from 'react-input-emoji'
 import EmojiPicker from 'emoji-picker-react'
-import { captions } from "../assets/energyCaptions";
-import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { StudentContext } from "./StudentContext";
@@ -82,25 +80,7 @@ export default function ReportEditor(){
                         externalBatchArray:externalBatch, 
                         alternativeSessionArray:alternativeSession
                     }})
-
-        // setloading(true)
-        // setButtonText('Geting started...')
-        // let i = 0
-        // const interval = setInterval(() => {
-        //     setButtonText(captions[i])
-        //     i++
-        //     if(i >= captions.length){
-        //         setButtonText('Delivered')
-        //         clearInterval(interval)
-        //         setloading(false)
-                
-        //     }
-        // }, 2000);
     }
-
-    useEffect(() => {
-        // console.log('date for report', reportDate)
-    }, [reportDate])
 
     return(
 
@@ -210,93 +190,9 @@ export default function ReportEditor(){
                 </div>
             </div>
 
-            {/* <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
-                <div className="w-full">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Date</label>
-                    <input value={reportDate} onChange={(event) => setReportDate(event.target.value)} type="date" name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none w-full" />
-                    <label htmlFor="" className="error-label text-red-500 text-xs block">{reportDateError}</label>
-                </div>
-                <div className="w-full">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Coordinator</label>
-                    <select value={coordinator1} onChange={(event) => setCoordinator1(event.target.value)} name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none w-full">
-                    <option value="">Coordinator 1</option>
-                    {
-                        students.map((student, index) => {
-                            return(<option>{student.name}</option>)
-                        })
-                    }
-                </select>
-                <label htmlFor="" className="error-label text-red-500 text-xs block">{coordinator1Error}</label>
-                </div>
-
-                <div className="w-full">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Coordinator</label>
-                    <select value={coordinator2} onChange={(event) => setCoordinator2(event.target.value)} name="" id="" className="border border-gray-200 !text-sm !p-1 rounded-sm outline-none w-full">
-                    <option value="">Coordinator 2</option>
-                    {
-                        students.map((student, index) => {
-                            return(<option>{student.name}</option>)
-                        })
-                    }
-                </select>
-                <label htmlFor="" className="error-label text-red-500 text-xs block">{coordinator2Error}</label>
-                </div>
-
-                <div className="w-full">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Report Made by</label>
-                    <input type="text" name="" id="" value={creator} onChange={(event) => setCreator(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-                    <label htmlFor="" className="error-label text-red-500 text-xs block">{creatorError}</label>
-                </div>
-                    <div className="w-full">
-                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Starting Time | <span style={{fontSize:'.7rem'}}>(eg : 2.00 PM)</span></label>
-                        <input placeholder="" type="text" name="" id="" value={start} onChange={(event) => setStart(event.target.value)} className="w-full border border-gray-200 !text-sm !text-sm !p-1 rounded-sm outline-none" />
-                        <label htmlFor="" className="error-label text-red-500 text-xs block">{startError}</label>
-                    </div>
-
-                    <div className="w-full">
-                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Ending Time | <span style={{fontSize:'.7rem'}}>(eg : 3.00 PM)</span></label>
-                        <input type="text" name="" id="" value={end} onChange={(event) => setEnd(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-                        <label htmlFor="" className="error-label text-red-500 text-xs block">{endError}</label>
-                    </div>
-            </div>        
-
-            <div className="w-full">
-                        <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Activity</label>
-                        <input type="text" name="" id="" value={activity} onChange={(event) => setActivity(event.target.value)} className="!w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-                        <label htmlFor="" className="error-label text-red-500 text-xs block">{activityError}</label>
-            </div>
-
-            <div className="!mt-2">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Topic</label>
-                    <InputEmoji value={topic} onChange={setTopic} placeholder="Topic name..." />
-            </div>
-
-            <div className="!mt-2">
-                    <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Session Overview</label>
-                    <div className="border border-gray-200 rounded relative">
-                        <textarea value={sessionOverview} onChange={(event) => setSessionOverview(event.target.value)} name="" rows={8} id="" className="!p-2 w-full outline-none"></textarea>
-                        <button onClick={handleEmojiPickerVisibility} type="button" className="btn-emoji cursor-pointer !text-xs !ms-2 !mb-2 border border-gray-200 !p-1">{showEmojiPicker ? 'Close' : 'Add Emoji'}</button>
-                        {
-                            showEmojiPicker && (<div className="absolute">
-                            <EmojiPicker onEmojiClick={handleEmojiPick} />
-                        </div>)
-                        }
-                    </div>
-            </div>
-
-            <div className="!mt-2 w-full">
-                <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">TLDV Link</label>
-                <input type="text" name="" id="" value={tldv} onChange={(event) => setTldv(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-            </div>
-
-            <div className="!mt-2 w-full">
-                <label htmlFor="" className="text-xs text-gray-400 !mb-1 block">Meetlist Link</label>
-                <input type="text" name="" id="" value={meetlist} onChange={(event) => setmeetlist(event.target.value)} className="w-full border border-gray-200 !text-sm !p-1 rounded-sm outline-none" />
-            </div> */}
             <div className="!mt-5 w-full">
                 <button onClick={generateReport} type="button" className="w-full rounded-sm !p-2 bg-gradient-to-r from-blue-500 to-violet-600 cursor-pointer text-white">
                     <div className="flex items-center justify-center gap-2">
-                        {/* {buttonText} {loading && (<Spinner />)} */}
                         <p>Generate Session Report</p>
                         <FaFile />
                     </div>

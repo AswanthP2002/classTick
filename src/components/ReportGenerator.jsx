@@ -1,11 +1,5 @@
 import ActiveStudents from './Students'
-import AttendedStudents from './Attended'
-import AbsentStudents from './Absent'
-import SelectedStudents from './Selected'
 import ExternalBatchAttendees from './ExternalBatchStudents'
-//import AlternateSession from './components/AlternateSessionStudents'
-import SelectedExternalStudents from './selectedExternalStudents'
-import SelectedAlternativeSessionStudents from './SelectedAlternativeSessionStudents'
 import ReportEditor from './ReportEditor'
 import { useContext, useEffect, useState } from 'react'
 import { IoMdArrowBack } from 'react-icons/io'
@@ -20,8 +14,6 @@ import { useNavigate } from 'react-router-dom'
 export default function ReportGenerator() {
     const [defaultLoading, setDefaultLoading] = useState(false)
     const {absentees, attendees, alternativeSession, unselectAlternative, externalBatch, unselect } = useContext(StudentContext)
-    const [extBatchStudents, setExtBatchStudents] = useState([])
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -35,11 +27,11 @@ export default function ReportGenerator() {
 
     return (
         <> 
-        {/* {defaultLoading && (
+        {defaultLoading && (
                 <div style={{zIndex:99999}} className="absolute left-0 top-0 w-full h-screen flex items-center bg-white justify-center">
                     <GenieLoader />
                 </div>
-            )} */}
+            )}
         
         <div className='w-full !px-5 !py-5 bg-gradient-to-br from-blue-50 to-white lg:!px-20 '>
             <div onClick={() => navigate('/')} className="flex items-center gap-2 w-fit hover:bg-gray-100 !p-1 rounded-sm cursor-pointer"><IoMdArrowBack /><p>Back to home</p></div>
@@ -114,20 +106,11 @@ export default function ReportGenerator() {
                     <p>Report Details</p>
                     <div className=''>
                         <ExternalBatchAttendees />
-                        {/* <SelectedStudents /> */}
                     </div>
                     <ReportEditor />
                 </div>
 
-            </div>
-            {/* <div className='border border-gray-200 w-full !mt-2 !mb-2'></div>
-            <p className="text-center !mb-2">Attendance preview</p>
-            <div className="!grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full !p-3 !gap-5">
-                <AttendedStudents />
-                <SelectedExternalStudents />
-                <SelectedAlternativeSessionStudents />
-                <AbsentStudents />
-            </div> */}
+            </div> 
         </div>
         </>
     )

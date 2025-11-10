@@ -11,7 +11,7 @@ export default function SideBar() {
             logoutSuccess()
             window.location.reload()
         } catch (error) {
-            // console.log('Error occured while logouting', error)
+            console.log('Error occured while logouting', error)
         }
     }
     return (

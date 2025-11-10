@@ -17,7 +17,7 @@ export default function AbsentStudents(){
         try {
             await navigator.clipboard.writeText(copiedText)
         } catch (error) {
-            // console.log('Error occured while copying text')
+            console.log('Error occured while copying text')
         }
     }
     return(

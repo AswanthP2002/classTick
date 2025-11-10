@@ -17,7 +17,6 @@ export default function ActionModal({ modalStatus, onAddStudent, onUpdateStudent
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        // console.log('Datas before execution', editData, isEdit)
         if(isEdit && editData){
             setName(editData.name)
             reset({
@@ -37,7 +36,6 @@ export default function ActionModal({ modalStatus, onAddStudent, onUpdateStudent
             if(insertedStudentId){
                 
                 closeModal()
-                //GeneiAlert({icon:'success', message:'student added'}) :: need rework, didn't worked as expected
                 Swal.fire({
                     icon:'success',
                     title:'Added',
@@ -166,37 +164,6 @@ export default function ActionModal({ modalStatus, onAddStudent, onUpdateStudent
                 </div>
             </div>
         </Modal>
-            {/* {
-                modalStatus && (
-                    <div className="absolute w-screen h-screen flex items-center justify-center transparent">
-                        <div className="modal w-[350px] border border-gray-300 rounded-sm bg-white shadow">
-                            <div className="w-full !p-3 flex justify-end"><i onClick={closeModal} className="cursor-pointer fa-solid fa-close"></i></div>
-                            <p className="text-center">Add Student</p>
-                            <div className="!px-5 !py-3">
-                                <div className="name">
-                                    <label htmlFor="" className="text-xs">Name</label>
-                                    <input value={name} onChange={(event) => setName(event.target.value)} type="text" name="" id="" className="outline-none w-full border border-gray-300 rounded-sm !p-1" />
-                                    <label htmlFor="" className="error-label text-xs text-red-500">{nameError}</label>
-                                </div>
-                                <div className="status !mt-2">
-                                    <label htmlFor="" className="text-xs">Status</label>
-                                    <select value={status} onChange={(event) => setStatus(event.target.value)} name="" id="" className="outline-none w-full border border-gray-300 rounded-sm !p-1">
-                                        <option value="">Select status</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Refreshment">Refreshment</option>
-                                        <option value="Suspended">Suspended</option>
-                                        <option value="Break">On Break</option>
-                                    </select>
-                                    <label htmlFor="" className="error-label text-xs text-red-500">{statusError}</label>
-                                </div>
-                                <div className="!mt-2">
-                                    <button onClick={isEdit ? updateCurrentStudent : addStudent} type="button" className="bg-blue-500 text-white rounded !p-1 w-full cursor-pointer">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            } */}
         </>
     )
 }

@@ -3,7 +3,7 @@ import { StudentContext } from "./StudentContext"
 
 export default function GenieAlert({ infoStatus}) {
    
-    const {alertStatus, setAlertStatus, icon, message, flag} = useContext(StudentContext)
+    const {setAlertStatus, icon, message, flag} = useContext(StudentContext)
 
     useState(() => {
         setTimeout(() => setAlertStatus(false), 2000)

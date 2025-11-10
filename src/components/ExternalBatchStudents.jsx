@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import { StudentContext } from "./StudentContext"
-import { RiUserAddFill } from "react-icons/ri"
 import { LuUserPlus } from "react-icons/lu"
 
 export default function ExternalBatchAttendees(){
@@ -22,10 +21,7 @@ export default function ExternalBatchAttendees(){
 
         if(nameError || batchError) return
         const studentName = `${student} ${batch}`
-        // let duplicate = false
-        // for(let i = 0; i < externalBatch.length; i++){
-        //     if(studentName.toLowerCase === externalBatch[i].toLowerCase) duplicate = true
-        // }
+        
         addExternalBatchStudents(studentName, false)
         setStudent('')
         setBatch('')
