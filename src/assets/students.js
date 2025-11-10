@@ -32,5 +32,5 @@ export const students = [
   { id: 30, name: "Jubin K", status: "active", remarks:""},
   { id: 31, name: "Joel Sunny", status: "active", remarks:""},
   { id: 32, name: "Vishnu C", status: "active", remarks:""},
-  { id: 33, name: "Sifana Siddieeq", status: "active", remarks:""}
+  { id: 33, name: "Shifana Siddieeq", status: "active", remarks:""}
 ];
