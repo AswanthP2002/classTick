@@ -17,6 +17,7 @@ import {CiLight, CiDark} from 'react-icons/ci'
 import {FaCircleInfo} from 'react-icons/fa6'
 import {SiDarkreader} from 'react-icons/si'
 import ThemeContextProvider, { themeContext } from './contexts/themeContext'
+import GreetingTestPage from './pages/Temp'
 
 function App() {
   const {alertStatus} = useContext(StudentContext)
@@ -52,6 +53,7 @@ function App() {
       <Route path='/admin/dashboard' element={<ProtectedRoute><StudentManagePage /></ProtectedRoute>} />
         {/* <Route path='/admin/dashboard' element={<StudentManagePage />} />
       </Route> */}
+      <Route path='/free-gift' element={<GreetingTestPage />} />
     </Routes>
 
     <GenieAlert infoStatus={alertStatus} />
