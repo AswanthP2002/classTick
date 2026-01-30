@@ -1,8 +1,8 @@
 
 export const students = [
-  { id: 1, name: "Amal Ramakrishnan", status: "active", remarks:"" },
-  { id: 2, name: "Anas C", status: "active", remarks:"" },
-  { id: 3, name: "Anju M", status: "active", remarks:"" },
+  // { id: 1, name: "Amal Ramakrishnan", status: "active", remarks:"" },
+  // { id: 2, name: "Anas C", status: "active", remarks:"" },
+  // { id: 3, name: "Anju M", status: "active", remarks:"" },
   // { id: 4, name: "Aswin K", status: "active", remarks:"" },
   // { id: 5, name: "Aswanth P", status: "active", remarks:"" },
   // { id: 6, name: "Muhammed Anees", status: "active", remarks:"" },
