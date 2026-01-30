@@ -71,7 +71,7 @@ export default function ReportPage() {
                             <p>➖➖➖➖➖➖➖➖➖➖➖</p>
                             <p className='!mt-2'>🖥 BCR 64</p>
                             <p className='!mt-2'>📆 Date: {reportDate}</p>
-                            <p className='!mt-2'>👩‍💻 Trainer: Sarang T P</p>
+                            <p className='!mt-2'>👩‍💻 Trainer: Anjana</p>
                             <p className='!mt-2'>👨🏻‍💼 Coordinators: </p>
                             <ul className='list-disc !ms-10'>
                                 <li>• {coordinator1}</li>
